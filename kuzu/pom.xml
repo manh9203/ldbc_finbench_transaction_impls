@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>impls</artifactId>
+    <groupId>org.ldbcouncil.finbench</groupId>
+    <version>0.1.0-alpha</version>
+  </parent>
+
+  <artifactId>kuzu</artifactId>
+  <name>kuzu</name>
+  <version>0.1.0-alpha</version>
+  <description>A KuzuDB implementation for reference</description>
+
+   <dependencies>
+        <dependency>
+            <groupId>org.ldbcouncil.finbench</groupId>
+            <artifactId>common</artifactId>
+            <version>0.1.0-alpha</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.kuzudb</groupId>
+            <artifactId>kuzudb</artifactId>
+            <version>0.0.6</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/kuzu_java.jar</systemPath>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.4.1</version>
+                <configuration>
+                    <!-- put your configurations here -->
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
