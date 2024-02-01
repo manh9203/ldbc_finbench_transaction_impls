@@ -61,9 +61,9 @@ public class KuzuQueryStore extends QueryStore {
     public Map<String, KuzuValue> getParamsComplexRead1(ComplexRead1 operation) {
         try {
             return new ImmutableMap.Builder<String, KuzuValue>()
-                .put(ComplexRead1.ID, new KuzuValue(String.valueOf(operation.getId())))
-                .put(ComplexRead1.START_TIME, new KuzuValue(operation.getStartTime().getTime()))
-                .put(ComplexRead1.END_TIME, new KuzuValue(operation.getEndTime().getTime()))
+                .put(ComplexRead1.ID, new KuzuValue(operation.getId()))
+                .put(ComplexRead1.START_TIME, new KuzuValue(operation.getStartTime().toInstant()))
+                .put(ComplexRead1.END_TIME, new KuzuValue(operation.getEndTime().toInstant()))
                 .put(ComplexRead1.TRUNCATION_LIMIT, new KuzuValue(operation.getTruncationLimit()))
                 .put(ComplexRead1.TRUNCATION_ORDER, new KuzuValue(new KuzuValue(operation.getTruncationOrder().name().equals(TruncationOrder.TIMESTAMP_DESCENDING.name()) ? "DESC" : "ASC").equals(TruncationOrder.TIMESTAMP_DESCENDING.name()) ? "DESC" : "ASC"))
                 .build();
@@ -77,9 +77,9 @@ public class KuzuQueryStore extends QueryStore {
     public Map<String, KuzuValue> getParamsComplexRead2(ComplexRead2 operation) {
         try {
             return new ImmutableMap.Builder<String, KuzuValue>()
-                .put(ComplexRead2.ID, new KuzuValue(String.valueOf(operation.getId())))
-                .put(ComplexRead2.START_TIME, new KuzuValue(operation.getStartTime().getTime()))
-                .put(ComplexRead2.END_TIME, new KuzuValue(operation.getEndTime().getTime()))
+                .put(ComplexRead2.ID, new KuzuValue(operation.getId()))
+                .put(ComplexRead2.START_TIME, new KuzuValue(operation.getStartTime().toInstant()))
+                .put(ComplexRead2.END_TIME, new KuzuValue(operation.getEndTime().toInstant()))
                 .put(ComplexRead2.TRUNCATION_LIMIT, new KuzuValue(operation.getTruncationLimit()))
                 .put(ComplexRead2.TRUNCATION_ORDER, new KuzuValue(operation.getTruncationOrder().name().equals(TruncationOrder.TIMESTAMP_DESCENDING.name()) ? "DESC" : "ASC"))
                 .build();
@@ -93,10 +93,10 @@ public class KuzuQueryStore extends QueryStore {
     public Map<String, KuzuValue> getParamsComplexRead3(ComplexRead3 operation) {
         try {
             return new ImmutableMap.Builder<String, KuzuValue>()
-                .put(ComplexRead3.ID1, new KuzuValue(String.valueOf(operation.getId1())))
-                .put(ComplexRead3.ID2, new KuzuValue(String.valueOf(operation.getId2())))
-                .put(ComplexRead3.START_TIME, new KuzuValue(operation.getStartTime().getTime()))
-                .put(ComplexRead3.END_TIME, new KuzuValue(operation.getEndTime().getTime()))
+                .put(ComplexRead3.ID1, new KuzuValue(operation.getId1()))
+                .put(ComplexRead3.ID2, new KuzuValue(operation.getId2()))
+                .put(ComplexRead3.START_TIME, new KuzuValue(operation.getStartTime().toInstant()))
+                .put(ComplexRead3.END_TIME, new KuzuValue(operation.getEndTime().toInstant()))
                 .build();
         } catch (KuzuObjectRefDestroyedException e) {
             // TODO Auto-generated catch block
@@ -108,10 +108,10 @@ public class KuzuQueryStore extends QueryStore {
     public Map<String, KuzuValue> getParamsComplexRead4(ComplexRead4 operation) {
         try {
             return new ImmutableMap.Builder<String, KuzuValue>()
-                .put(ComplexRead4.ID1, new KuzuValue(String.valueOf(operation.getId1())))
-                .put(ComplexRead4.ID2, new KuzuValue(String.valueOf(operation.getId2())))
-                .put(ComplexRead4.START_TIME, new KuzuValue(operation.getStartTime().getTime()))
-                .put(ComplexRead4.END_TIME, new KuzuValue(operation.getEndTime().getTime()))
+                .put(ComplexRead4.ID1, new KuzuValue(operation.getId1()))
+                .put(ComplexRead4.ID2, new KuzuValue(operation.getId2()))
+                .put(ComplexRead4.START_TIME, new KuzuValue(operation.getStartTime().toInstant()))
+                .put(ComplexRead4.END_TIME, new KuzuValue(operation.getEndTime().toInstant()))
                 .build();
         } catch (KuzuObjectRefDestroyedException e) {
             // TODO Auto-generated catch block
@@ -123,9 +123,9 @@ public class KuzuQueryStore extends QueryStore {
     public Map<String, KuzuValue> getParamsComplexRead5(ComplexRead5 operation) {
         try {
             return new ImmutableMap.Builder<String, KuzuValue>()
-                .put(ComplexRead5.ID, new KuzuValue(String.valueOf(operation.getId())))
-                .put(ComplexRead5.START_TIME, new KuzuValue(operation.getStartTime().getTime()))
-                .put(ComplexRead5.END_TIME, new KuzuValue(operation.getEndTime().getTime()))
+                .put(ComplexRead5.ID, new KuzuValue(operation.getId()))
+                .put(ComplexRead5.START_TIME, new KuzuValue(operation.getStartTime().toInstant()))
+                .put(ComplexRead5.END_TIME, new KuzuValue(operation.getEndTime().toInstant()))
                 .put(ComplexRead5.TRUNCATION_LIMIT, new KuzuValue(operation.getTruncationLimit()))
                 .put(ComplexRead5.TRUNCATION_ORDER, new KuzuValue(operation.getTruncationOrder().name().equals(TruncationOrder.TIMESTAMP_DESCENDING.name()) ? "DESC" : "ASC"))
                 .build();
@@ -139,11 +139,11 @@ public class KuzuQueryStore extends QueryStore {
     public Map<String, KuzuValue> getParamsComplexRead6(ComplexRead6 operation) {
         try {
             return new ImmutableMap.Builder<String, KuzuValue>()
-                .put(ComplexRead6.ID, new KuzuValue(String.valueOf(operation.getId())))
+                .put(ComplexRead6.ID, new KuzuValue(operation.getId()))
                 .put(ComplexRead6.THRESHOLD1, new KuzuValue(operation.getThreshold1()))
                 .put(ComplexRead6.THRESHOLD2, new KuzuValue(operation.getThreshold2()))
-                .put(ComplexRead6.START_TIME, new KuzuValue(operation.getStartTime().getTime()))
-                .put(ComplexRead6.END_TIME, new KuzuValue(operation.getEndTime().getTime()))
+                .put(ComplexRead6.START_TIME, new KuzuValue(operation.getStartTime().toInstant()))
+                .put(ComplexRead6.END_TIME, new KuzuValue(operation.getEndTime().toInstant()))
                 .put(ComplexRead6.TRUNCATION_LIMIT, new KuzuValue(operation.getTruncationLimit()))
                 .put(ComplexRead6.TRUNCATION_ORDER, new KuzuValue(operation.getTruncationOrder().name().equals(TruncationOrder.TIMESTAMP_DESCENDING.name()) ? "DESC" : "ASC"))
                 .build();
@@ -157,10 +157,10 @@ public class KuzuQueryStore extends QueryStore {
     public Map<String, KuzuValue> getParamsComplexRead7(ComplexRead7 operation) {
         try {
             return new ImmutableMap.Builder<String, KuzuValue>()
-                .put(ComplexRead7.ID, new KuzuValue(String.valueOf(operation.getId())))
+                .put(ComplexRead7.ID, new KuzuValue(operation.getId()))
                 .put(ComplexRead7.THRESHOLD, new KuzuValue(operation.getThreshold()))
-                .put(ComplexRead7.START_TIME, new KuzuValue(operation.getStartTime().getTime()))
-                .put(ComplexRead7.END_TIME, new KuzuValue(operation.getEndTime().getTime()))
+                .put(ComplexRead7.START_TIME, new KuzuValue(operation.getStartTime().toInstant()))
+                .put(ComplexRead7.END_TIME, new KuzuValue(operation.getEndTime().toInstant()))
                 .put(ComplexRead7.TRUNCATION_LIMIT, new KuzuValue(operation.getTruncationLimit()))
                 .put(ComplexRead7.TRUNCATION_ORDER, new KuzuValue(operation.getTruncationOrder().name().equals(TruncationOrder.TIMESTAMP_DESCENDING.name()) ? "DESC" : "ASC"))
                 .build();
@@ -174,10 +174,10 @@ public class KuzuQueryStore extends QueryStore {
     public Map<String, KuzuValue> getParamsComplexRead8(ComplexRead8 operation) {
         try {
             return new ImmutableMap.Builder<String, KuzuValue>()
-                .put(ComplexRead8.ID, new KuzuValue(String.valueOf(operation.getId())))
+                .put(ComplexRead8.ID, new KuzuValue(operation.getId()))
                 .put(ComplexRead8.THRESHOLD, new KuzuValue(operation.getThreshold()))
-                .put(ComplexRead8.START_TIME, new KuzuValue(operation.getStartTime().getTime()))
-                .put(ComplexRead8.END_TIME, new KuzuValue(operation.getEndTime().getTime()))
+                .put(ComplexRead8.START_TIME, new KuzuValue(operation.getStartTime().toInstant()))
+                .put(ComplexRead8.END_TIME, new KuzuValue(operation.getEndTime().toInstant()))
                 .put(ComplexRead8.TRUNCATION_LIMIT, new KuzuValue(operation.getTruncationLimit()))
                 .put(ComplexRead8.TRUNCATION_ORDER, new KuzuValue(operation.getTruncationOrder().name().equals(TruncationOrder.TIMESTAMP_DESCENDING.name()) ? "DESC" : "ASC"))
                 .build();
@@ -191,10 +191,10 @@ public class KuzuQueryStore extends QueryStore {
     public Map<String, KuzuValue> getParamsComplexRead9(ComplexRead9 operation) {
         try {
             return new ImmutableMap.Builder<String, KuzuValue>()
-                .put(ComplexRead9.ID, new KuzuValue(String.valueOf(operation.getId())))
+                .put(ComplexRead9.ID, new KuzuValue(operation.getId()))
                 .put(ComplexRead9.THRESHOLD, new KuzuValue(operation.getThreshold()))
-                .put(ComplexRead9.START_TIME, new KuzuValue(operation.getStartTime().getTime()))
-                .put(ComplexRead9.END_TIME, new KuzuValue(operation.getEndTime().getTime()))
+                .put(ComplexRead9.START_TIME, new KuzuValue(operation.getStartTime().toInstant()))
+                .put(ComplexRead9.END_TIME, new KuzuValue(operation.getEndTime().toInstant()))
                 .put(ComplexRead9.TRUNCATION_LIMIT, new KuzuValue(operation.getTruncationLimit()))
                 .put(ComplexRead9.TRUNCATION_ORDER, new KuzuValue(operation.getTruncationOrder().name().equals(TruncationOrder.TIMESTAMP_DESCENDING.name()) ? "DESC" : "ASC"))
                 .build();
@@ -210,8 +210,8 @@ public class KuzuQueryStore extends QueryStore {
             return new ImmutableMap.Builder<String, KuzuValue>()
                 .put(ComplexRead10.PID1, new KuzuValue(String.valueOf(operation.getPid1())))
                 .put(ComplexRead10.PID2, new KuzuValue(String.valueOf(operation.getPid2())))
-                .put(ComplexRead10.START_TIME, new KuzuValue(operation.getStartTime().getTime()))
-                .put(ComplexRead10.END_TIME, new KuzuValue(operation.getEndTime().getTime()))
+                .put(ComplexRead10.START_TIME, new KuzuValue(operation.getStartTime().toInstant()))
+                .put(ComplexRead10.END_TIME, new KuzuValue(operation.getEndTime().toInstant()))
                 .build();
         } catch (KuzuObjectRefDestroyedException e) {
             // TODO Auto-generated catch block
@@ -223,9 +223,9 @@ public class KuzuQueryStore extends QueryStore {
     public Map<String, KuzuValue> getParamsComplexRead11(ComplexRead11 operation) {
         try {
             return new ImmutableMap.Builder<String, KuzuValue>()
-                .put(ComplexRead11.ID, new KuzuValue(String.valueOf(operation.getId())))
-                .put(ComplexRead11.START_TIME, new KuzuValue(operation.getStartTime().getTime()))
-                .put(ComplexRead11.END_TIME, new KuzuValue(operation.getEndTime().getTime()))
+                .put(ComplexRead11.ID, new KuzuValue(operation.getId()))
+                .put(ComplexRead11.START_TIME, new KuzuValue(operation.getStartTime().toInstant()))
+                .put(ComplexRead11.END_TIME, new KuzuValue(operation.getEndTime().toInstant()))
                 .put(ComplexRead11.TRUNCATION_LIMIT, new KuzuValue(operation.getTruncationLimit()))
                 .put(ComplexRead11.TRUNCATION_ORDER, new KuzuValue(operation.getTruncationOrder().name().equals(TruncationOrder.TIMESTAMP_DESCENDING.name()) ? "DESC" : "ASC"))
                 .build();
@@ -239,9 +239,9 @@ public class KuzuQueryStore extends QueryStore {
     public Map<String, KuzuValue> getParamsComplexRead12(ComplexRead12 operation) {
         try {
             return new ImmutableMap.Builder<String, KuzuValue>()
-                .put(ComplexRead12.ID, new KuzuValue(String.valueOf(operation.getId())))
-                .put(ComplexRead12.START_TIME, new KuzuValue(operation.getStartTime().getTime()))
-                .put(ComplexRead12.END_TIME, new KuzuValue(operation.getEndTime().getTime()))
+                .put(ComplexRead12.ID, new KuzuValue(operation.getId()))
+                .put(ComplexRead12.START_TIME, new KuzuValue(operation.getStartTime().toInstant()))
+                .put(ComplexRead12.END_TIME, new KuzuValue(operation.getEndTime().toInstant()))
                 .put(ComplexRead12.TRUNCATION_LIMIT, new KuzuValue(operation.getTruncationLimit()))
                 .put(ComplexRead12.TRUNCATION_ORDER, new KuzuValue(operation.getTruncationOrder().name().equals(TruncationOrder.TIMESTAMP_DESCENDING.name()) ? "DESC" : "ASC"))
                 .build();
@@ -255,7 +255,7 @@ public class KuzuQueryStore extends QueryStore {
     public Map<String, KuzuValue> getParamsSimpleRead1(SimpleRead1 operation) {
         try {
             return new ImmutableMap.Builder<String, KuzuValue>()
-                .put(SimpleRead1.ID, new KuzuValue(String.valueOf(operation.getId())))
+                .put(SimpleRead1.ID, new KuzuValue(operation.getId()))
                 .build();
         } catch (KuzuObjectRefDestroyedException e) {
             // TODO Auto-generated catch block
@@ -267,9 +267,9 @@ public class KuzuQueryStore extends QueryStore {
     public Map<String, KuzuValue> getParamsSimpleRead2(SimpleRead2 operation) {
         try {
             return new ImmutableMap.Builder<String, KuzuValue>()
-                .put(SimpleRead2.ID, new KuzuValue(String.valueOf(operation.getId())))
-                .put(SimpleRead2.START_TIME, new KuzuValue(operation.getStartTime().getTime()))
-                .put(SimpleRead2.END_TIME, new KuzuValue(operation.getEndTime().getTime()))
+                .put(SimpleRead2.ID, new KuzuValue(operation.getId()))
+                .put(SimpleRead2.START_TIME, new KuzuValue(operation.getStartTime().toInstant()))
+                .put(SimpleRead2.END_TIME, new KuzuValue(operation.getEndTime().toInstant()))
                 .build();
         } catch (KuzuObjectRefDestroyedException e) {
             // TODO Auto-generated catch block
@@ -281,10 +281,10 @@ public class KuzuQueryStore extends QueryStore {
     public Map<String, KuzuValue> getParamsSimpleRead3(SimpleRead3 operation) {
         try {
             return new ImmutableMap.Builder<String, KuzuValue>()
-                .put(SimpleRead3.ID, new KuzuValue(String.valueOf(operation.getId())))
+                .put(SimpleRead3.ID, new KuzuValue(operation.getId()))
                 .put(SimpleRead3.THRESHOLD, new KuzuValue(operation.getThreshold()))
-                .put(SimpleRead3.START_TIME, new KuzuValue(operation.getStartTime().getTime()))
-                .put(SimpleRead3.END_TIME, new KuzuValue(operation.getEndTime().getTime()))
+                .put(SimpleRead3.START_TIME, new KuzuValue(operation.getStartTime().toInstant()))
+                .put(SimpleRead3.END_TIME, new KuzuValue(operation.getEndTime().toInstant()))
                 .build();
         } catch (KuzuObjectRefDestroyedException e) {
             // TODO Auto-generated catch block
@@ -296,10 +296,10 @@ public class KuzuQueryStore extends QueryStore {
     public Map<String, KuzuValue> getParamsSimpleRead4(SimpleRead4 operation) {
         try {
             return new ImmutableMap.Builder<String, KuzuValue>()
-                .put(SimpleRead4.ID, new KuzuValue(String.valueOf(operation.getId())))
+                .put(SimpleRead4.ID, new KuzuValue(operation.getId()))
                 .put(SimpleRead4.THRESHOLD, new KuzuValue(operation.getThreshold()))
-                .put(SimpleRead4.START_TIME, new KuzuValue(operation.getStartTime().getTime()))
-                .put(SimpleRead4.END_TIME, new KuzuValue(operation.getEndTime().getTime()))
+                .put(SimpleRead4.START_TIME, new KuzuValue(operation.getStartTime().toInstant()))
+                .put(SimpleRead4.END_TIME, new KuzuValue(operation.getEndTime().toInstant()))
                 .build();
         } catch (KuzuObjectRefDestroyedException e) {
             // TODO Auto-generated catch block
@@ -311,10 +311,10 @@ public class KuzuQueryStore extends QueryStore {
     public Map<String, KuzuValue> getParamsSimpleRead5(SimpleRead5 operation) {
         try {
             return new ImmutableMap.Builder<String, KuzuValue>()
-                .put(SimpleRead5.ID, new KuzuValue(String.valueOf(operation.getId())))
+                .put(SimpleRead5.ID, new KuzuValue(operation.getId()))
                 .put(SimpleRead5.THRESHOLD, new KuzuValue(operation.getThreshold()))
-                .put(SimpleRead5.START_TIME, new KuzuValue(operation.getStartTime().getTime()))
-                .put(SimpleRead5.END_TIME, new KuzuValue(operation.getEndTime().getTime()))
+                .put(SimpleRead5.START_TIME, new KuzuValue(operation.getStartTime().toInstant()))
+                .put(SimpleRead5.END_TIME, new KuzuValue(operation.getEndTime().toInstant()))
                 .build();
         } catch (KuzuObjectRefDestroyedException e) {
             // TODO Auto-generated catch block
@@ -326,9 +326,9 @@ public class KuzuQueryStore extends QueryStore {
     public Map<String, KuzuValue> getParamsSimpleRead6(SimpleRead6 operation) {
         try {
             return new ImmutableMap.Builder<String, KuzuValue>()
-                .put(SimpleRead6.ID, new KuzuValue(String.valueOf(operation.getId())))
-                .put(SimpleRead6.START_TIME, new KuzuValue(operation.getStartTime().getTime()))
-                .put(SimpleRead6.END_TIME, new KuzuValue(operation.getEndTime().getTime()))
+                .put(SimpleRead6.ID, new KuzuValue(operation.getId()))
+                .put(SimpleRead6.START_TIME, new KuzuValue(operation.getStartTime().toInstant()))
+                .put(SimpleRead6.END_TIME, new KuzuValue(operation.getEndTime().toInstant()))
                 .build();
         } catch (KuzuObjectRefDestroyedException e) {
             // TODO Auto-generated catch block
@@ -384,7 +384,7 @@ public class KuzuQueryStore extends QueryStore {
             return new ImmutableMap.Builder<String, KuzuValue>()
                 .put(Write4.PERSON_ID, new KuzuValue(String.valueOf(operation.getPersonId())))
                 .put(Write4.ACCOUNT_ID, new KuzuValue(String.valueOf(operation.getAccountId())))
-                .put(Write4.TIME, new KuzuValue(operation.getTime().getTime()))
+                .put(Write4.TIME, new KuzuValue(operation.getTime().toInstant()))
                 .put(Write4.ACCOUNT_BLOCKED, new KuzuValue(operation.getAccountBlocked()))
                 .put(Write4.ACCOUNT_TYPE, new KuzuValue(operation.getAccountType()))
                 .build();
@@ -400,7 +400,7 @@ public class KuzuQueryStore extends QueryStore {
             return new ImmutableMap.Builder<String, KuzuValue>()
                 .put(Write5.COMPANY_ID, new KuzuValue(String.valueOf(operation.getCompanyId())))
                 .put(Write5.ACCOUNT_ID, new KuzuValue(String.valueOf(operation.getAccountId())))
-                .put(Write5.TIME, new KuzuValue(operation.getTime().getTime()))
+                .put(Write5.TIME, new KuzuValue(operation.getTime().toInstant()))
                 .put(Write5.ACCOUNT_BLOCKED, new KuzuValue(operation.getAccountBlocked()))
                 .put(Write5.ACCOUNT_TYPE, new KuzuValue(operation.getAccountType()))
                 .build();
@@ -418,7 +418,7 @@ public class KuzuQueryStore extends QueryStore {
                 .put(Write6.LOAN_ID, new KuzuValue(String.valueOf(operation.getLoanId())))
                 .put(Write6.LOAN_AMOUNT, new KuzuValue(operation.getLoanAmount()))
                 .put(Write6.BALANCE, new KuzuValue(operation.getBalance()))
-                .put(Write6.TIME, new KuzuValue(operation.getTime().getTime()))
+                .put(Write6.TIME, new KuzuValue(operation.getTime().toInstant()))
                 .build();
         } catch (KuzuObjectRefDestroyedException e) {
             // TODO Auto-generated catch block
@@ -434,7 +434,7 @@ public class KuzuQueryStore extends QueryStore {
                 .put(Write7.LOAN_ID, new KuzuValue(String.valueOf(operation.getLoanId())))
                 .put(Write7.LOAN_AMOUNT, new KuzuValue(operation.getLoanAmount()))
                 .put(Write7.BALANCE, new KuzuValue(operation.getBalance()))
-                .put(Write7.TIME, new KuzuValue(operation.getTime().getTime()))
+                .put(Write7.TIME, new KuzuValue(operation.getTime().toInstant()))
                 .build();
         } catch (KuzuObjectRefDestroyedException e) {
             // TODO Auto-generated catch block
@@ -448,7 +448,7 @@ public class KuzuQueryStore extends QueryStore {
             return new ImmutableMap.Builder<String, KuzuValue>()
                 .put(Write8.PERSON_ID, new KuzuValue(String.valueOf(operation.getPersonId())))
                 .put(Write8.COMPANY_ID, new KuzuValue(String.valueOf(operation.getCompanyId())))
-                .put(Write8.TIME, new KuzuValue(operation.getTime().getTime()))
+                .put(Write8.TIME, new KuzuValue(operation.getTime().toInstant()))
                 .put(Write8.RATIO, new KuzuValue(operation.getRatio()))
                 .build();
         } catch (KuzuObjectRefDestroyedException e) {
@@ -463,7 +463,7 @@ public class KuzuQueryStore extends QueryStore {
             return new ImmutableMap.Builder<String, KuzuValue>()
                 .put(Write9.COMPANY_ID1, new KuzuValue(String.valueOf(operation.getCompanyId1())))
                 .put(Write9.COMPANY_ID2, new KuzuValue(String.valueOf(operation.getCompanyId2())))
-                .put(Write9.TIME, new KuzuValue(operation.getTime().getTime()))
+                .put(Write9.TIME, new KuzuValue(operation.getTime().toInstant()))
                 .put(Write9.RATIO, new KuzuValue(operation.getRatio()))
                 .build();
         } catch (KuzuObjectRefDestroyedException e) {
@@ -478,7 +478,7 @@ public class KuzuQueryStore extends QueryStore {
             return new ImmutableMap.Builder<String, KuzuValue>()
                 .put(Write10.PERSON_ID1, new KuzuValue(String.valueOf(operation.getPersonId1())))
                 .put(Write10.PERSON_ID2, new KuzuValue(String.valueOf(operation.getPersonId2())))
-                .put(Write10.TIME, new KuzuValue(operation.getTime().getTime()))
+                .put(Write10.TIME, new KuzuValue(operation.getTime().toInstant()))
                 .build();
         } catch (KuzuObjectRefDestroyedException e) {
             // TODO Auto-generated catch block
@@ -492,7 +492,7 @@ public class KuzuQueryStore extends QueryStore {
             return new ImmutableMap.Builder<String, KuzuValue>()
                 .put(Write11.COMPANY_ID1, new KuzuValue(String.valueOf(operation.getCompanyId1())))
                 .put(Write11.COMPANY_ID2, new KuzuValue(String.valueOf(operation.getCompanyId2())))
-                .put(Write11.TIME, new KuzuValue(operation.getTime().getTime()))
+                .put(Write11.TIME, new KuzuValue(operation.getTime().toInstant()))
                 .build();
         } catch (KuzuObjectRefDestroyedException e) {
             // TODO Auto-generated catch block
@@ -506,7 +506,7 @@ public class KuzuQueryStore extends QueryStore {
             return new ImmutableMap.Builder<String, KuzuValue>()
                 .put(Write12.ACCOUNT_ID1, new KuzuValue(String.valueOf(operation.getAccountId1())))
                 .put(Write12.ACCOUNT_ID2, new KuzuValue(String.valueOf(operation.getAccountId2())))
-                .put(Write12.TIME, new KuzuValue(operation.getTime().getTime()))
+                .put(Write12.TIME, new KuzuValue(operation.getTime().toInstant()))
                 .put(Write12.AMOUNT, new KuzuValue(operation.getAmount()))
                 .build();
         } catch (KuzuObjectRefDestroyedException e) {
@@ -521,7 +521,7 @@ public class KuzuQueryStore extends QueryStore {
             return new ImmutableMap.Builder<String, KuzuValue>()
                 .put(Write13.ACCOUNT_ID1, new KuzuValue(String.valueOf(operation.getAccountId1())))
                 .put(Write13.ACCOUNT_ID2, new KuzuValue(String.valueOf(operation.getAccountId2())))
-                .put(Write13.TIME, new KuzuValue(operation.getTime().getTime()))
+                .put(Write13.TIME, new KuzuValue(operation.getTime().toInstant()))
                 .put(Write13.AMOUNT, new KuzuValue(operation.getAmount()))
                 .build();
         } catch (KuzuObjectRefDestroyedException e) {
@@ -536,7 +536,7 @@ public class KuzuQueryStore extends QueryStore {
             return new ImmutableMap.Builder<String, KuzuValue>()
                 .put(Write14.ACCOUNT_ID, new KuzuValue(String.valueOf(operation.getAccountId())))
                 .put(Write14.LOAN_ID, new KuzuValue(String.valueOf(operation.getLoanId())))
-                .put(Write14.TIME, new KuzuValue(operation.getTime().getTime()))
+                .put(Write14.TIME, new KuzuValue(operation.getTime().toInstant()))
                 .put(Write14.AMOUNT, new KuzuValue(operation.getAmount()))
                 .build();
         } catch (KuzuObjectRefDestroyedException e) {
@@ -551,7 +551,7 @@ public class KuzuQueryStore extends QueryStore {
             return new ImmutableMap.Builder<String, KuzuValue>()
                 .put(Write15.LOAN_ID, new KuzuValue(String.valueOf(operation.getLoanId())))
                 .put(Write15.ACCOUNT_ID, new KuzuValue(String.valueOf(operation.getAccountId())))
-                .put(Write15.TIME, new KuzuValue(operation.getTime().getTime()))
+                .put(Write15.TIME, new KuzuValue(operation.getTime().toInstant()))
                 .put(Write15.AMOUNT, new KuzuValue(operation.getAmount()))
                 .build();
         } catch (KuzuObjectRefDestroyedException e) {
@@ -566,7 +566,7 @@ public class KuzuQueryStore extends QueryStore {
             return new ImmutableMap.Builder<String, KuzuValue>()
                 .put(Write16.MEDIUM_ID, new KuzuValue(String.valueOf(operation.getMediumId())))
                 .put(Write16.ACCOUNT_ID, new KuzuValue(String.valueOf(operation.getAccountId())))
-                .put(Write16.TIME, new KuzuValue(operation.getTime().getTime()))
+                .put(Write16.TIME, new KuzuValue(operation.getTime().toInstant()))
                 .build();
         } catch (KuzuObjectRefDestroyedException e) {
             // TODO Auto-generated catch block
@@ -616,10 +616,10 @@ public class KuzuQueryStore extends QueryStore {
             return new ImmutableMap.Builder<String, KuzuValue>()
                 .put(ReadWrite1.SRC_ID, new KuzuValue(String.valueOf(operation.getSrcId())))
                 .put(ReadWrite1.DST_ID, new KuzuValue(String.valueOf(operation.getDstId())))
-                .put(ReadWrite1.TIME, new KuzuValue(operation.getTime().getTime()))
+                .put(ReadWrite1.TIME, new KuzuValue(operation.getTime().toInstant()))
                 .put(ReadWrite1.AMOUNT, new KuzuValue(operation.getAmount()))
-                .put(ReadWrite1.START_TIME, new KuzuValue(operation.getStartTime().getTime()))
-                .put(ReadWrite1.END_TIME, new KuzuValue(operation.getEndTime().getTime()))
+                .put(ReadWrite1.START_TIME, new KuzuValue(operation.getStartTime().toInstant()))
+                .put(ReadWrite1.END_TIME, new KuzuValue(operation.getEndTime().toInstant()))
                 .build();
         } catch (KuzuObjectRefDestroyedException e) {
             // TODO Auto-generated catch block
@@ -633,11 +633,11 @@ public class KuzuQueryStore extends QueryStore {
             return new ImmutableMap.Builder<String, KuzuValue>()
                 .put(ReadWrite2.SRC_ID, new KuzuValue(String.valueOf(operation.getSrcId())))
                 .put(ReadWrite2.DST_ID, new KuzuValue(String.valueOf(operation.getDstId())))
-                .put(ReadWrite2.TIME, new KuzuValue(operation.getTime().getTime()))
+                .put(ReadWrite2.TIME, new KuzuValue(operation.getTime().toInstant()))
                 .put(ReadWrite2.AMOUNT_THRESHOLD, new KuzuValue(operation.getAmountThreshold()))
                 .put(ReadWrite2.AMOUNT, new KuzuValue(operation.getAmount()))
-                .put(ReadWrite2.START_TIME, new KuzuValue(operation.getStartTime().getTime()))
-                .put(ReadWrite2.END_TIME, new KuzuValue(operation.getEndTime().getTime()))
+                .put(ReadWrite2.START_TIME, new KuzuValue(operation.getStartTime().toInstant()))
+                .put(ReadWrite2.END_TIME, new KuzuValue(operation.getEndTime().toInstant()))
                 .put(ReadWrite2.RATIO_THRESHOLD, new KuzuValue(operation.getRatioThreshold()))
                 .put(ReadWrite2.TRUNCATION_LIMIT, new KuzuValue(operation.getTruncationLimit()))
                 .put(ReadWrite2.TRUNCATION_ORDER, new KuzuValue(operation.getTruncationOrder().name().equals(TruncationOrder.TIMESTAMP_DESCENDING.name()) ? "DESC" : "ASC"))
@@ -654,10 +654,10 @@ public class KuzuQueryStore extends QueryStore {
             return new ImmutableMap.Builder<String, KuzuValue>()
                 .put(ReadWrite3.SRC_ID, new KuzuValue(String.valueOf(operation.getSrcId())))
                 .put(ReadWrite3.DST_ID, new KuzuValue(String.valueOf(operation.getDstId())))
-                .put(ReadWrite2.TIME, new KuzuValue(operation.getTime().getTime()))
+                .put(ReadWrite2.TIME, new KuzuValue(operation.getTime().toInstant()))
                 .put(ReadWrite3.THRESHOLD, new KuzuValue(operation.getThreshold()))
                 .put(ReadWrite3.START_TIME, new KuzuValue(operation.getStartTime().getTime()))
-                .put(ReadWrite3.END_TIME, new KuzuValue(operation.getEndTime().getTime()))
+                .put(ReadWrite3.END_TIME, new KuzuValue(operation.getEndTime().toInstant()))
                 .put(ReadWrite3.TRUNCATION_LIMIT, new KuzuValue(operation.getTruncationLimit()))
                 .put(ReadWrite3.TRUNCATION_ORDER, new KuzuValue(operation.getTruncationOrder().name().equals(TruncationOrder.TIMESTAMP_DESCENDING.name()) ? "DESC" : "ASC"))
                 .build();
