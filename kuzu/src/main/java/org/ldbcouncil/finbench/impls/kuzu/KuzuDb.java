@@ -153,9 +153,9 @@ public class KuzuDb extends Db {
             ComplexRead1Result result = new ComplexRead1Result(0, 0, 0, null);
             try {
                 result = new ComplexRead1Result(
-                    Long.parseLong((String) tuple.getValue(0).getValue()),
+                    (long) tuple.getValue(0).getValue(),
                     (int) tuple.getValue(1).getValue(),
-                    Long.parseLong((String) tuple.getValue(2).getValue()),
+                    (long) tuple.getValue(2).getValue(),
                     (String) tuple.getValue(3).getValue());
                 return result;
             } catch (NumberFormatException | KuzuObjectRefDestroyedException e) {
@@ -172,6 +172,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, ComplexRead1 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionComplexRead1);
         }
 
@@ -189,7 +190,7 @@ public class KuzuDb extends Db {
             ComplexRead2Result result = new ComplexRead2Result(0, 0, 0);
             try {
                 result = new ComplexRead2Result(
-                    Long.parseLong((String) tuple.getValue(0).getValue()),
+                    (long) tuple.getValue(0).getValue(),
                     (double) tuple.getValue(1).getValue(),
                     (double) tuple.getValue(2).getValue());
             } catch (NumberFormatException | KuzuObjectRefDestroyedException e) {
@@ -206,6 +207,7 @@ public class KuzuDb extends Db {
         
         @Override
         protected String getQuery(KuzuDbConnectionState state, ComplexRead2 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionComplexRead2);
         }
 
@@ -238,6 +240,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, ComplexRead3 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionComplexRead3);
         }
 
@@ -262,7 +265,7 @@ public class KuzuDb extends Db {
             ComplexRead4Result result = new ComplexRead4Result(0, 0, 0, 0, 0, 0, 0);
             try {
                 result = new ComplexRead4Result(
-                    Long.parseLong((String) tuple.getValue(0).getValue()),
+                    (long) tuple.getValue(0).getValue(),
                     (long) tuple.getValue(1).getValue(),
                     (double) tuple.getValue(2).getValue(),
                     (double) tuple.getValue(3).getValue(),
@@ -278,6 +281,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, ComplexRead4 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionComplexRead4);
         }
 
@@ -307,7 +311,7 @@ public class KuzuDb extends Db {
                 e.printStackTrace();
             }
             for (Object id : ids) {
-                path.addId(Long.parseLong((String) id));
+                path.addId((long) id);
             }
             ComplexRead5Result result = new ComplexRead5Result(path);
             return result;
@@ -315,6 +319,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, ComplexRead5 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionComplexRead5);
         }
 
@@ -338,7 +343,7 @@ public class KuzuDb extends Db {
             ComplexRead6Result result = new ComplexRead6Result(0, 0, 0);
             try {
                 result = new ComplexRead6Result(
-                    Long.parseLong((String) tuple.getValue(0).getValue()),
+                    (long) tuple.getValue(0).getValue(),
                     (double) tuple.getValue(1).getValue(),
                     (double) tuple.getValue(2).getValue());
             } catch (NumberFormatException | KuzuObjectRefDestroyedException e) {
@@ -350,6 +355,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, ComplexRead6 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionComplexRead6);
         }
 
@@ -383,6 +389,7 @@ public class KuzuDb extends Db {
         }
         @Override
         protected String getQuery(KuzuDbConnectionState state, ComplexRead7 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionComplexRead7);
         }
 
@@ -406,7 +413,7 @@ public class KuzuDb extends Db {
             ComplexRead8Result result = new ComplexRead8Result(0, 0, 0);
             try {
                 result = new ComplexRead8Result(
-                    Long.parseLong((String) tuple.getValue(0).getValue()),
+                    (long) tuple.getValue(0).getValue(),
                     (float) tuple.getValue(1).getValue(),
                     (int) tuple.getValue(2).getValue());
             } catch (NumberFormatException | KuzuObjectRefDestroyedException e) {
@@ -418,6 +425,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, ComplexRead8 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionComplexRead8);
         }
 
@@ -452,6 +460,7 @@ public class KuzuDb extends Db {
         }
         @Override
         protected String getQuery(KuzuDbConnectionState state, ComplexRead9 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionComplexRead9);
         }
 
@@ -485,6 +494,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, ComplexRead10 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionComplexRead10);
         }
 
@@ -519,6 +529,7 @@ public class KuzuDb extends Db {
         
         @Override
         protected String getQuery(KuzuDbConnectionState state, ComplexRead11 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionComplexRead11);
         }
 
@@ -542,7 +553,7 @@ public class KuzuDb extends Db {
             ComplexRead12Result result = new ComplexRead12Result(0, 0);
             try {
                 result = new ComplexRead12Result(
-                    Long.parseLong((String) tuple.getValue(0).getValue()),
+                    (long) tuple.getValue(0).getValue(),
                     (double) tuple.getValue(1).getValue());
             } catch (NumberFormatException | KuzuObjectRefDestroyedException e) {
                 // TODO Auto-generated catch block
@@ -553,6 +564,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, ComplexRead12 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionComplexRead12);
         }
 
@@ -588,6 +600,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, SimpleRead1 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionSimpleRead1);
         }
 
@@ -625,6 +638,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, SimpleRead2 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionSimpleRead2);
         }
 
@@ -657,6 +671,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, SimpleRead3 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionSimpleRead3);
         }
 
@@ -679,7 +694,7 @@ public class KuzuDb extends Db {
             SimpleRead4Result result = new SimpleRead4Result(0, 0, 0);
             try {
                 result = new SimpleRead4Result(
-                    Long.parseLong((String) tuple.getValue(0).getValue()),
+                    (long) tuple.getValue(0).getValue(),
                     (int) tuple.getValue(1).getValue(),
                     (double) tuple.getValue(2).getValue());
             } catch (NumberFormatException | KuzuObjectRefDestroyedException e) {
@@ -691,6 +706,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, SimpleRead4 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionSimpleRead4);
         }
 
@@ -713,7 +729,7 @@ public class KuzuDb extends Db {
             SimpleRead5Result result = new SimpleRead5Result(0, 0, 0);
             try {
                 result = new SimpleRead5Result(
-                    Long.parseLong((String) tuple.getValue(0).getValue()),
+                    (long) tuple.getValue(0).getValue(),
                     (int) tuple.getValue(1).getValue(),
                     (double) tuple.getValue(2).getValue());
             } catch (NumberFormatException | KuzuObjectRefDestroyedException e) {
@@ -725,6 +741,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, SimpleRead5 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionSimpleRead5);
         }
 
@@ -747,7 +764,7 @@ public class KuzuDb extends Db {
             SimpleRead6Result result = new SimpleRead6Result(0);
             try {
                 result = new SimpleRead6Result(
-                    Long.parseLong((String) tuple.getValue(0).getValue()));
+                    (long) tuple.getValue(0).getValue());
             } catch (NumberFormatException | KuzuObjectRefDestroyedException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -757,6 +774,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, SimpleRead6 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionSimpleRead6);
         }
 
@@ -776,6 +794,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, Write1 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionWrite1);
         }
 
@@ -795,6 +814,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, Write2 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionWrite2);
         }
 
@@ -814,6 +834,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, Write3 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionWrite3);
         }
 
@@ -833,6 +854,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, Write4 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionWrite4);
         }
 
@@ -852,6 +874,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, Write5 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionWrite5);
         }
 
@@ -871,6 +894,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, Write6 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionWrite6);
         }
 
@@ -890,6 +914,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, Write7 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionWrite7);
         }
 
@@ -909,6 +934,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, Write8 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionWrite8);
         }
 
@@ -928,6 +954,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, Write9 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionWrite9);
         }
 
@@ -947,6 +974,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, Write10 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionWrite10);
         }
 
@@ -966,6 +994,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, Write11 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionWrite11);
         }
 
@@ -985,6 +1014,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, Write12 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionWrite12);
         }
 
@@ -1004,6 +1034,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, Write13 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionWrite13);
         }
 
@@ -1023,6 +1054,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, Write14 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionWrite14);
         }
 
@@ -1042,6 +1074,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, Write15 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionWrite15);
         }
 
@@ -1061,6 +1094,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, Write16 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionWrite16);
         }
 
@@ -1080,6 +1114,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, Write17 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionWrite17);
         }
 
@@ -1099,6 +1134,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, Write18 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionWrite18);
         }
 
@@ -1118,6 +1154,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, Write19 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionWrite19);
         }
 
@@ -1137,6 +1174,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, ReadWrite1 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionReadWrite1);
         }
 
@@ -1156,6 +1194,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, ReadWrite2 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionReadWrite2);
         }
 
@@ -1175,6 +1214,7 @@ public class KuzuDb extends Db {
 
         @Override
         protected String getQuery(KuzuDbConnectionState state, ReadWrite3 operation) {
+            KuzuDb.logger.info(operation.toString());
             return state.getQueryStore().getQuery(QueryType.TransactionReadWrite3);
         }
 
