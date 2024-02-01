@@ -576,7 +576,7 @@ public class KuzuDb extends Db {
             SimpleRead1Result result = new SimpleRead1Result(null, false, null);
             try {
                 result = new SimpleRead1Result(
-                    new Date((long) tuple.getValue(0).getValue()),
+                    Date.from(tuple.getValue(0).getValue()),
                     (Boolean) tuple.getValue(1).getValue(),
                     (String) tuple.getValue(2).getValue());
             } catch (KuzuObjectRefDestroyedException e) {
