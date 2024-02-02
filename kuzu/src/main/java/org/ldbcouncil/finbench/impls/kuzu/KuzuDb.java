@@ -261,7 +261,6 @@ public class KuzuDb extends Db {
 
         @Override
         protected ComplexRead4Result convertSingleResult(KuzuFlatTuple tuple) {
-            
             ComplexRead4Result result = new ComplexRead4Result(0, 0, 0, 0, 0, 0, 0);
             try {
                 result = new ComplexRead4Result(
