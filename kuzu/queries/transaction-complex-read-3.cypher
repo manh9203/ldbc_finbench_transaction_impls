@@ -1,7 +1,6 @@
-OPTIONAL MATCH path = shortestPath((:Account {id: $id1 })-[transfer:AccountTransferAccount*1..15]->(:Account {id: $id2 }))
-WHERE all(e IN transfer WHERE e.timestamp > $startTime AND e.timestamp < $endTime)
+OPTIONAL MATCH path = (:Account {id: $id1})-[transfer:AccountTransferAccount* ALL SHORTEST 1..15 (r, n | WHERE $startTime < r.timestamp AND r.timestamp < $endTime)]->(:Account {id: $id2})
 RETURN
-CASE path IS NULL
-  WHEN true THEN -1
+CASE size(rels(path))
+  WHEN 0 THEN -1
   ELSE length(path)
 END AS shortestPathLength
