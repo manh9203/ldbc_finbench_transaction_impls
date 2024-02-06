@@ -65,7 +65,7 @@ public class KuzuQueryStore extends QueryStore {
                 .put(ComplexRead1.START_TIME, new KuzuValue(operation.getStartTime().toInstant()))
                 .put(ComplexRead1.END_TIME, new KuzuValue(operation.getEndTime().toInstant()))
                 .put(ComplexRead1.TRUNCATION_LIMIT, new KuzuValue(operation.getTruncationLimit()))
-                .put(ComplexRead1.TRUNCATION_ORDER, new KuzuValue(new KuzuValue(operation.getTruncationOrder().name().equals(TruncationOrder.TIMESTAMP_DESCENDING.name()) ? "DESC" : "ASC").equals(TruncationOrder.TIMESTAMP_DESCENDING.name()) ? "DESC" : "ASC"))
+                .put(ComplexRead1.TRUNCATION_ORDER, new KuzuValue(operation.getTruncationOrder().name().equals(TruncationOrder.TIMESTAMP_DESCENDING.name()) ? "DESC" : "ASC"))
                 .build();
         } catch (KuzuObjectRefDestroyedException e) {
             // TODO Auto-generated catch block

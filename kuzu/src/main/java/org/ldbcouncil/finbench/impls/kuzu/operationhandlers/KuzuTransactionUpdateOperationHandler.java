@@ -2,6 +2,7 @@ package org.ldbcouncil.finbench.impls.kuzu.operationhandlers;
 import com.kuzudb.*;
 
 import java.util.Map;
+import java.util.HashMap;
 import org.ldbcouncil.finbench.impls.kuzu.KuzuDbConnectionState;
 import org.ldbcouncil.finbench.driver.DbException;
 import org.ldbcouncil.finbench.driver.Operation;
@@ -21,15 +22,27 @@ public abstract class KuzuTransactionUpdateOperationHandler<
 
         String queryString = getQuery(state, operation);
         Map<String, KuzuValue> params = getParams(state, operation);
-        if (queryString.contains("$truncationOrder")) {
-            try {
-                queryString = queryString.replace("$truncationOrder", (String) params.get("truncationOrder").getValue());
-                queryString = queryString.replace("$truncationLimit", String.valueOf((int) params.get("truncationLimit").getValue()));
-            } catch (KuzuObjectRefDestroyedException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
+
+        // TODO: implement truncation edges, commented this part for now
+        // if (queryString.contains("$truncationOrder")) {
+        //     try {
+        //         queryString = queryString.replace("$truncationOrder", (String) params.get("truncationOrder").getValue());
+        //         queryString = queryString.replace("$truncationLimit", String.valueOf((int) params.get("truncationLimit").getValue()));
+        //     } catch (KuzuObjectRefDestroyedException e) {
+        //         // TODO Auto-generated catch block
+        //         e.printStackTrace();
+        //     }
+        // }
+
+        // disable params for truncation order and limit
+        // will remove this part when done with implementing truncation
+        if (params.containsKey("truncationOrder")) {
+            Map<String, KuzuValue> newParams = new HashMap<>(params);
+            newParams.remove("truncationOrder");
+            newParams.remove("truncationLimit");
+            params = newParams;
         }
+
         String[] txns = queryString.split("BEGIN|COMMIT", 1000);
 
         try {
