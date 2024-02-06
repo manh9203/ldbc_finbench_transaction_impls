@@ -1,9 +1,15 @@
-CYPHER EXPANDCONFIG = ([transfer], timestamp, $truncationOrder, $truncationLimit)
-MATCH p=(account:Account{id: $id })-[transfer:AccountTransferAccount*1..3]->(other:Account),
-(other)<-[signIn:MediumSignInAccount]-(medium:Medium {isBlocked: true})
-WITH p, [e IN relationships(p) | e.timestamp] AS ts, other, medium, transfer
-WHERE reduce(curr = head(ts), x IN tail(ts) | CASE WHEN curr < x THEN x ELSE 9223372036854775807 end) <> 9223372036854775807
-AND all(e IN transfer WHERE e.timestamp > $startTime AND e.timestamp < $endTime)
-AND signIn.timestamp > $startTime AND signIn.timestamp < $endTime
-RETURN DISTINCT other.id AS otherId, length(p) AS accountDistance, medium.id AS mediumId, medium.type AS mediumType
-ORDER BY accountDistance, toInteger(otherId), toInteger(mediumId)
+MATCH
+  p = (account:Account {id: $id})-[edge1:AccountTransferAccount*1..3 (r, n | WHERE $startTime < r.timestamp AND r.timestamp < $endTime)]->(other:Account),
+  (other)<-[edge2:MediumSignInAccount]-(medium:Medium {isBlocked: true})
+WITH
+  edge2.timestamp AS signInTime,
+  properties(rels(p), 'timestamp') AS ts,
+  length(p) AS pathLength,
+  other, medium
+WHERE 
+  $startTime < signInTime AND signInTime < $endTime
+  AND ts = list_sort(ts, 'ASC')
+WITH
+  other.id AS otherId, pathLength AS accountDistance, medium.id AS mediumId, medium.type AS mediumType
+RETURN otherId, CAST(accountDistance, "INT32"), mediumId, mediumType
+ORDER BY accountDistance, otherId, mediumId
