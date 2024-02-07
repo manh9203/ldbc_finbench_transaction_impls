@@ -59,8 +59,15 @@ public abstract class KuzuTransactionUpdateOperationHandler<
                         if (query.trim().isEmpty()) {
                             continue;
                         }
+                        Map<String, KuzuValue> filteredParams = new HashMap<>();
+                        for (Map.Entry<String, KuzuValue> entry : params.entrySet()) {
+                            String key = entry.getKey();
+                            if (query.contains("$" + key)) {
+                                filteredParams.put(key, entry.getValue());
+                            }
+                        }
                         KuzuPreparedStatement preparedQuery = conn.prepare(query);
-                        KuzuQueryResult statementResult = conn.execute(preparedQuery, params);
+                        KuzuQueryResult statementResult = conn.execute(preparedQuery, filteredParams);
                         if (statementResult.hasNext()) {
                             KuzuFlatTuple tuple = statementResult.getNext();
                             if (!(Boolean) tuple.getValue(0).getValue()) {
@@ -76,8 +83,9 @@ public abstract class KuzuTransactionUpdateOperationHandler<
                 } finally {
                     if (!isSuccess) {
                         conn.rollback();
+                    } else {
+                        conn.commit();
                     }
-                    conn.commit();
                 }
                 // Whether to do step 4
                 // step 1 is success
