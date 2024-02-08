@@ -12,9 +12,14 @@ A Kuzu reference implementation for the [LDBC Financial Benchmark](https://ldbco
 |   |-- resources
 |   |   |-- kuzu_java.jar
 |   |   |-- data
-|   |   |   |-- incremental
-|   |   |   |-- read_params
-|   |   |   |-- snapshot
+|   |   |   |-- sf1
+|   |   |   |   |-- incremental
+|   |   |   |   |-- read_params
+|   |   |   |   |-- snapshot
+|   |   |   |-- sf10
+|   |   |   |   |-- incremental
+|   |   |   |   |-- read_params
+|   |   |   |   |-- snapshot
 |   |   |-- .gitignore
 ```
 
@@ -22,7 +27,8 @@ A Kuzu reference implementation for the [LDBC Financial Benchmark](https://ldbco
 Run 
 ```
 cd kuzu 
-python3 scripts/import_data.py 
+python3 scripts/import_data.py sf{x}
+# x is the scale factor
 ```
 
 ## 3. Benchmark
