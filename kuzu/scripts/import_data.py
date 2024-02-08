@@ -1,11 +1,10 @@
 import kuzu
 import os
+import sys
 import logging
 import shutil
 
 base_dir = os.path.dirname(os.path.realpath(__file__))
-data_path = os.path.join(base_dir, '..', 'src', 'main', 'resources', 'data', 'snapshot')
-db_path = os.path.join(base_dir, '..', 'scratch', 'db')
 
 def load_schema(conn):
     schema_file = open(os.path.join(base_dir, '..', 'schema.cypher')).read().split(';\n')
@@ -20,7 +19,7 @@ def load_schema(conn):
 
     logging.info("Loaded schema")
 
-def load_dataset(conn):
+def load_dataset(conn, data_path):
     node_files = ["Account", "Company", "Loan", "Medium", "Person"]
     edge_files = ["AccountRepayLoan", "AccountTransferAccount", "AccountWithdrawAccount", "CompanyApplyLoan", "CompanyGuaranteeCompany", "CompanyInvestCompany", "CompanyOwnAccount", "LoanDepositAccount", "MediumSignInAccount", "PersonApplyLoan", "PersonGuaranteePerson", "PersonInvestCompany", "PersonOwnAccount"]
 
@@ -40,16 +39,25 @@ def load_dataset(conn):
 
 
 def main():
+    if len(sys.argv) < 2:
+        print("Usage: scripts/import_data.py sf{x}")
+        print("Where x is the scale factor")
+        exit(1)
+    else:
+        sf = sys.argv[1]
+
+    data_path = os.path.join(base_dir, '..', 'src', 'main', 'resources', 'data', sf, 'snapshot')
+    db_path = os.path.join(base_dir, '..', 'scratch', 'db')
+
     shutil.rmtree(db_path, ignore_errors=True)
 
     db = kuzu.Database(db_path)
-
     conn = kuzu.Connection(db)
 
 
     logging.info("Successfully connected")
 
-    load_dataset(conn)
+    load_dataset(conn, data_path)
 
 
 if __name__ == "__main__":
